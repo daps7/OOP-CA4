@@ -6,12 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-public class ImplementExpenseDAO implements ExpenseDAO {
+import Exception.DaoException;
+public class ImplementExpenseDAO extends ExpenseDAO {
     private Connection conn;
 
-    public ImplementExpenseDAO() {
-        conn = DatabaseConnection.getConnection();
+    public ImplementExpenseDAO() throws DaoException {
+        conn = BaseDao.getConnection();
     }
 
     @Override
@@ -38,7 +38,6 @@ public class ImplementExpenseDAO implements ExpenseDAO {
         return expenses;
     }
 
-    @Override
     public void addExpense(ExpenseDTO expense) {
         String query = "INSERT INTO expenses (title, category, amount, dateIncurred) VALUES (?, ?, ?, ?)";
 

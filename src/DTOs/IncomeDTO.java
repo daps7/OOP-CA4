@@ -1,15 +1,21 @@
 package DTOs;
 
-import java.util.Date;
+public class IncomeDTO {
+    private int incomeID;
+    private String title;
+    private double amount;
+    private String dateEarned;
 
-public class IncomeDTO
-{
-        private int incomeID;
-        private String title;
-        private double amount;
-        private Date dateEarned;
+    public IncomeDTO(int incomeID, String title, double amount, String dateEarned) {
+        this.incomeID = incomeID;
+        this.title = title;
+        this.amount = amount;
+        this.dateEarned = dateEarned;
+    }
 
-        // Getters and Setters
+    public IncomeDTO()
+    {
+    }
 
     public int getIncomeID() {
         return incomeID;
@@ -35,12 +41,16 @@ public class IncomeDTO
         this.amount = amount;
     }
 
-    public Date getDateEarned() {
+    public String getDateEarned() {
         return dateEarned;
     }
 
-    public void setDateEarned(Date dateEarned) {
+    public void setDateEarned(String dateEarned) {
         this.dateEarned = dateEarned;
     }
-}
 
+    @Override
+    public String toString() {
+        return incomeID + ". " + title + " - €" + amount + " (Earned: " + dateEarned + ")";
+    }
+}
