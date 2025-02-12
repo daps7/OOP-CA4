@@ -1,6 +1,5 @@
 package DAOs;
 import Exception.DaoException;
-import DAOs.BaseDao;
 import DTOs.ExpenseDTO;
 
 import java.sql.*;
@@ -16,15 +15,15 @@ public class ExpenseDAO extends BaseDao {
         try {
             conn = getConnection();
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
+            ResultSet result = stmt.executeQuery(query);
 
-            while (rs.next()) {
+            while (result.next()) {
                 expenseList.add(new ExpenseDTO(
-                        rs.getInt("expenseID"),
-                        rs.getString("title"),
-                        rs.getString("category"),
-                        rs.getDouble("amount"),
-                        rs.getDate("dateIncurred")
+                        result.getInt("expenseID"),
+                        result.getString("title"),
+                        result.getString("category"),
+                        result.getDouble("amount"),
+                        result.getDate("dateIncurred")
                 ));
             }
         } catch (SQLException e) {
@@ -43,12 +42,12 @@ public class ExpenseDAO extends BaseDao {
 
         try {
             conn = getConnection();
-            PreparedStatement pstmt = conn.prepareStatement(query);
-            pstmt.setString(1, title);
-            pstmt.setString(2, category);
-            pstmt.setDouble(3, amount);
-            pstmt.setString(4, dateIncurred);
-            pstmt.executeUpdate();
+            PreparedStatement prepare = conn.prepareStatement(query);
+            prepare.setString(1, title);
+            prepare.setString(2, category);
+            prepare.setDouble(3, amount);
+            prepare.setString(4, dateIncurred);
+            prepare.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -62,9 +61,9 @@ public class ExpenseDAO extends BaseDao {
 
         try {
             conn = getConnection();
-            PreparedStatement pstmt = conn.prepareStatement(query);
-            pstmt.setInt(1, expenseID);
-            pstmt.executeUpdate();
+            PreparedStatement prepare = conn.prepareStatement(query);
+            prepare.setInt(1, expenseID);
+            prepare.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class BaseDao {
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://localhost:3306/ExpenseTracker";
+    private static final String URL = "jdbc:mysql://localhost:3306/expense_record";
     private static final String USERNAME = "root";  // Change if needed
     private static final String PASSWORD = "";      // Set your MySQL password
 

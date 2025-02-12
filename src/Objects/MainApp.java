@@ -37,6 +37,29 @@ public class MainApp {
                     String date = scanner.next();
                     incomeDAO.addIncome(title, amount, date);
                     break;
+                    case 3:
+                        System.out.print("Income ID of the item you'd like to delete: ");
+                        int id = scanner.nextInt();
+                        incomeDAO.deleteIncome(id);
+                case 4:
+                    expenseDAO.getAllExpenses().forEach(System.out::println);
+                    break;
+                case 5:
+                 System.out.print("Title: ");
+                 title = scanner.nextLine();
+                 System.out.print("Catagory: ");
+                 String catagory = scanner.nextLine();
+                 System.out.print("Amount: ");
+                 amount= scanner.nextDouble();
+                 System.out.print("Date (YYYY-MM-DD): ");
+                 date = scanner.next();
+                 expenseDAO.addExpense(title, catagory, amount, date);
+                 break;
+                    case 6:
+                        System.out.print("ID of the expense you would like to delete : ");
+                        id = scanner.nextInt();
+                        expenseDAO.deleteExpense(id);
+                        break;
                 case 0:
                     System.exit(0);
             }
