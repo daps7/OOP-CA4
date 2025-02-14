@@ -14,8 +14,8 @@ public class ExpenseDAO extends BaseDao {
 
         try {
             conn = getConnection();
-            Statement stmt = conn.createStatement();
-            ResultSet result = stmt.executeQuery(query);
+            Statement state = conn.createStatement();
+            ResultSet result = state.executeQuery(query);
 
             while (result.next()) {
                 expenseList.add(new ExpenseDTO(
