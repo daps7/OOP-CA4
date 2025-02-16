@@ -41,6 +41,7 @@ public class MainApp {
                         System.out.print("Income ID of the item you'd like to delete: ");
                         int id = scanner.nextInt();
                         incomeDAO.deleteIncome(id);
+                        break;
                 case 4:
                     expenseDAO.getAllExpenses().forEach(System.out::println);
                     break;
